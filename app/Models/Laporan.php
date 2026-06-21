@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Laporan extends Model
+{
+    use SoftDeletes;
+
+    protected $table = 'laporan';
+
+    protected $fillable = [
+        'user_id',
+        'kategori_pelaporan_id',
+        'judul',
+        'deskripsi',
+        'lokasi',
+        'latitude',
+        'longitude',
+        'foto',
+        'status', // Menunggu, Diproses, Selesai
+    ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function kategoriPelaporan(): BelongsTo
+    {
+        return $this->belongsTo(KategoriPelaporan::class, 'kategori_pelaporan_id');
+    }
+
+    public function tindakLanjut(): HasMany
+    {
+        return $this->hasMany(TindakLanjut::class, 'laporan_id');
+    }
+}
