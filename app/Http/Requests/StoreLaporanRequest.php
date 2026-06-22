@@ -14,6 +14,8 @@ class StoreLaporanRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'nama_pelapor' => 'required|string|max:255',
+            'no_telp' => 'required|string|max:20|regex:/^[0-9+\-\s]+$/',
             'judul' => 'required|string|max:255',
             'kategori_pelaporan_id' => 'required|exists:kategori_pelaporan,id',
             'deskripsi' => 'required|string',
@@ -27,6 +29,9 @@ class StoreLaporanRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'nama_pelapor.required' => 'Nama pelapor wajib diisi.',
+            'no_telp.required' => 'Nomor telepon aktif wajib diisi.',
+            'no_telp.regex' => 'Format nomor telepon tidak valid.',
             'judul.required' => 'Judul laporan wajib diisi.',
             'kategori_pelaporan_id.required' => 'Kategori pelaporan wajib dipilih.',
             'kategori_pelaporan_id.exists' => 'Kategori pelaporan tidak valid.',

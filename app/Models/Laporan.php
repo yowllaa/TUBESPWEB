@@ -15,6 +15,8 @@ class Laporan extends Model
 
     protected $fillable = [
         'user_id',
+        'nama_pelapor',
+        'no_telp aktif',
         'kategori_pelaporan_id',
         'judul',
         'deskripsi',

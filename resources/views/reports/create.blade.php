@@ -12,6 +12,28 @@
 
         <form action="{{ route('reports.store') }}" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
             @csrf
+            <!-- Grid Nama Pelapor & Nomor Telepon -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Nama Pelapor -->
+                <div class="space-y-1.5">
+                    <label for="nama_pelapor" class="text-sm font-bold text-slate-700">Nama Pelapor</label>
+                    <input type="text" id="nama_pelapor" name="nama_pelapor" value="{{ old('nama_pelapor') }}" required placeholder="Nama lengkap pelapor"
+                           class="w-full rounded-xl border-slate-200 text-sm focus:border-blue-500 focus:ring-blue-500 @error('nama_pelapor') border-red-500 @enderror">
+                    @error('nama_pelapor')
+                        <p class="text-xs font-semibold text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <!-- Nomor Telepon Aktif -->
+                <div class="space-y-1.5">
+                    <label for="no_telp" class="text-sm font-bold text-slate-700">Nomor Telepon Aktif</label>
+                    <input type="text" id="no_telp" name="no_telp" value="{{ old('no_telp') }}" required placeholder="Contoh: 081234567890"
+                           class="w-full rounded-xl border-slate-200 text-sm focus:border-blue-500 focus:ring-blue-500 @error('no_telp') border-red-500 @enderror">
+                    @error('no_telp')
+                        <p class="text-xs font-semibold text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
 
             <!-- Grid Judul & Kategori -->
             <div class="grid md:grid-cols-2 gap-6">
