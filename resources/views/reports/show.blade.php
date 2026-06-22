@@ -65,7 +65,7 @@
 
             <!-- Photo Evidence Card -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-6 space-y-3">
-                <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wider">Foto Bukti Kejadian</h3>
+                <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wider">Foto Bukti Kejadian!</h3>
                 <div class="rounded-xl overflow-hidden bg-slate-50 border border-slate-100">
                     <img src="{{ asset('storage/' . $laporan->foto) }}" alt="Foto Bukti" class="w-full h-auto max-h-[500px] object-contain mx-auto">
                 </div>
